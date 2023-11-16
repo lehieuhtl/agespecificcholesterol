@@ -1,0 +1,52 @@
+---
+title: "Dashboard"
+author: "Hieu T. Le"
+date: "`r Sys.Date()`"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This R Markdown document is made interactive using Shiny. Unlike the more traditional workflow of creating static reports, you can now create documents that allow your readers to change the assumptions underlying your analysis and see the results immediately. 
+
+To learn more, see [Interactive Documents](http://rmarkdown.rstudio.com/authoring_shiny.html).
+
+```{r}
+library(shiny)
+library(ggplot2)
+agedata.csv = read_csv("agedata.csv")
+
+ui = fluidPage(
+  titlePanel("Cholesterol Levels Dashboard"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("age_group", "Select Age Group:", choices = unique(agedata.csv$`Age group`))
+    ),
+    mainPanel(
+      plotOutput("cholesterol_plot")
+    )
+  )
+)
+
+server = function(input, output) {
+  filtered_data = reactive({
+    agedata.csv %>% filter(`Age group` == input$age_group)
+  })
+  output$cholesterol_plot = renderPlot({
+    ggplot(filtered_data(), aes(x = Country, y = `Mean total cholesterol (mmol/L)`, fill = `Age group`)) +
+      geom_bar(stat = "identity", position = "dodge") +
+      labs(title = paste("Cholesterol levels for", input$age_group, "Age group"),
+           x = "Country", y = "Mean Cholesterol Levels") +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  })
+}
+shinyApp(ui, server)
+
+```
+
+
+
+

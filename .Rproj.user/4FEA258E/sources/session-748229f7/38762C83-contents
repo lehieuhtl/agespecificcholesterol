@@ -33,6 +33,7 @@ ggplot(agedata.csv, aes(x = Country, y = `Mean total cholesterol (mmol/L)`, fill
         plot.margin = margin(1, 1, 1, 1, "cm"),
         plot.title = element_text(hjust = 0.5))
 
+write.csv(agedata.csv, file = "agedata.csv", row.names = FALSE)
 
 
 
