@@ -13,7 +13,7 @@ agedata.csv = agedata.csv %>%
 agedata.csv = agedata.csv %>%
   filter(Year >= 2000)
 
-countries_to_keep <- c("United States", "Mexico", "Vietnam", "United Kingdom", "Canada", "China")
+countries_to_keep <- c("United States", "Mexico", "Viet Nam", "United Kingdom", "Canada", "China")
 
 agedata.csv = agedata.csv %>%
   filter(Country %in% countries_to_keep)
