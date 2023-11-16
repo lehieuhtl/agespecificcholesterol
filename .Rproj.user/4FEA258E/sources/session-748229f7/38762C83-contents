@@ -24,8 +24,14 @@ ggplot(agedata.csv, aes(x = Country, y = `Mean total cholesterol (mmol/L)`, fill
   labs(title = "Mean Cholesterol Levels by Country and Age Group",
        x = "Country", y = "Mean Cholesterol Levels") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1),
-        plot.margin = margin(1.5, 1.5, 1.5, 1, "cm"),
-        plot.title = element_text(hjust = 0.4))
+        axis.text.y = element_text(size = 10),
+        legend.position = "right",
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 10),
+        legend.key.height = unit(0.25, "cm"),
+        legend.box.background = element_rect(color = "black", size = 1),
+        plot.margin = margin(1, 1, 1, 1, "cm"),
+        plot.title = element_text(hjust = 0.5))
 
 
 
