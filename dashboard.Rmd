@@ -42,7 +42,7 @@ server = function(input, output) {
     agedata.csv %>% filter(`Age group` == input$age_group)
   })
   output$cholesterol_plot = renderPlot({
-    age_group_colors = c("18-19" = "red", "20-24" = "blue", "25-29" = "green", "30-34" = "orange", "35-39" = "purple", "40-44" = "brown", "45-49" = "black", "50-54" = "navy", "55-59" = "gray", "60-64" = "white", "65-69" = "violet", "70-74" = "gold", "75-79" = "yellow", "80-84" = "")
+    age_group_colors = c("18-19" = "red", "20-24" = "blue", "25-29" = "green", "30-34" = "orange", "35-39" = "purple", "40-44" = "brown", "45-49" = "black", "50-54" = "navy", "55-59" = "gray", "60-64" = "white", "65-69" = "violet", "70-74" = "gold", "75-79" = "yellow", "80-84" = "aquamarine", "85plus" = "darkgreen")
     ggplot(filtered_data(), aes(x = Country, y = `Mean total cholesterol (mmol/L)`, fill = `Age group`)) +
       geom_bar(stat = "identity", position = "dodge") +
       labs(title = paste("Cholesterol levels for", input$age_group, "Age group"),
