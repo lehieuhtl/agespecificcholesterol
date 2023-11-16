@@ -22,7 +22,10 @@ agedata.csv = agedata.csv %>%
 ggplot(agedata.csv, aes(x = Country, y = `Mean total cholesterol (mmol/L)`, fill = `Age group`)) + 
   stat_summary(fun = "mean", geom = "bar", position = "dodge") +
   labs(title = "Mean Cholesterol Levels by Country and Age Group",
-       x = "Country", y = "Mean Cholesterol Levels")
+       x = "Country", y = "Mean Cholesterol Levels") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        plot.margin = margin(1.5, 1.5, 1.5, 1, "cm"),
+        plot.title = element_text(hjust = 0.4))
 
 
 
