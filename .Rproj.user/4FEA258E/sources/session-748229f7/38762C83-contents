@@ -18,6 +18,16 @@ countries_to_keep <- c("United States", "Mexico", "Vietnam", "United Kingdom", "
 agedata.csv = agedata.csv %>%
   filter(Country %in% countries_to_keep)
 
-ggplot(agedata.csv, aes(x = Country, fill = `Age group`)) + 
-  geom_bar(position = "dodge") +
-  labs(title = "Cholesterol Levels by Country and Age Group", x = "Country", y = "Cholesterol Levels")
+
+ggplot(agedata.csv, aes(x = Country, y = `Mean total cholesterol (mmol/L)`, fill = `Age group`)) + 
+  stat_summary(fun = "mean", geom = "bar", position = "dodge") +
+  labs(title = "Mean Cholesterol Levels by Country and Age Group",
+       x = "Country", y = "Mean Cholesterol Levels")
+
+
+
+
+
+
+
+
