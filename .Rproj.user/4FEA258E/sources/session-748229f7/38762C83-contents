@@ -1,8 +1,13 @@
 library(rstatix)
 library(tidyverse)
 library(ggplot2)
+library(dplyr)
 #Load in data
 agedata.csv = read_csv("agespec.csv")
 head(agedata.csv)
 summary(agedata.csv)
 
+
+ggplot(agedata.csv, aes(x = Country, fill = `Age group`)) + 
+  geom_bar(position = "dodge") +
+  labs(title = "Cholesterol Levels by Country and Age Group", x = "Country", y = "Cholesterol Levels")
