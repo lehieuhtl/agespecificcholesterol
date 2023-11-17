@@ -20,10 +20,11 @@ This R Markdown document is made interactive using Shiny. Unlike the more tradit
 
 To learn more, see [Interactive Documents](http://rmarkdown.rstudio.com/authoring_shiny.html).
 
-```{r}
+```{r, echo=FALSE}
 library(shiny)
 library(ggplot2)
-agedata.csv = read_csv("agedata.csv")
+agedata.csv = read_csv("agedata.csv", show_col_types = FALSE)
+
 
 ui = fluidPage(
   titlePanel("Cholesterol Levels Dashboard"),
