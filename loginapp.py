@@ -5,8 +5,11 @@ import pandas as pd
 #Load the cholesterol data
 agedata = pd.read_csv("agedata.csv")
 
+# Dash app with suppress_callback_exceptions=True
+app = dash.Dash(__name__, suppress_callback_exceptions=True)
+
 #Dash app
-app = dash.Dash(__Chol__)
+app = dash.Dash(__name__)
 #Layout for login
 login_layout = html.Div([
   html.H2("Login System"),
