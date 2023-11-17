@@ -14,4 +14,15 @@ ui = fluidPage(
   )
 )
 #Define the server
+server = function(input, output, session) {
+  observeEvent(input$login, {
+    #Simulation of a login system
+    if (input$username == "demo" && input$password == "password") {
+      output$loginStatus = renderText("Login Successful")
+    } else {
+      output$loginStatus = renderText("You put the wrong password, try again >:(")
+    }
+  })
+}
 
+shinyApp(ui, server)
