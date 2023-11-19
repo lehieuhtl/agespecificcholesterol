@@ -16,15 +16,26 @@ with open('dashboard.Rmd', 'r') as file:
 
 
 #Layout for login
-login_layout = html.Div([
-  html.H2("Login System"),
-  html.Label("Username:"),
-  dcc.Input(id='username-input', type='text', value=''),
-  html.Label("Password:"),
-  dcc.Input(id='password-input', type='password', value=''),
-  html.Button('Log In', id='login-button'),
-  html.Div(id='login-status', children='')
-])
+# login_layout = html.Div([
+#   html.H2("Login System"),
+#   html.Label("Username:"),
+#   dcc.Input(id='username-input', type='text', value=''),
+#   html.Label("Password:"),
+#   dcc.Input(id='password-input', type='password', value=''),
+#   html.Button('Log In', id='login-button'),
+#   html.Div(id='login-status', children='')
+# ])
+
+#New layout for login to allow enter/return 
+login_layout = html.Form([
+    html.H2("Login System"),
+    html.H2("Username:"),
+    dcc.Input(id='username-input', type='text', value=''),
+    html.Label("Password:")
+    dcc.Input(id='password-input', type='password', value=''),
+    html.Button('Log In', id='login-button', type='submit'),
+], action='javascript:void(0);')
+    
 
 # Layout for cholesterol dashboard
 dashboard_layout = html.Div([
