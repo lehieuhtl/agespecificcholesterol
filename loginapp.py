@@ -37,6 +37,13 @@ login_layout = html.Form([
 ], action='javascript:void(0);')
     
 
+#Layout for the main page
+main_layout = html.Div([
+    html.H2("Main Page"),
+    html.Button('View Dashboard', id='dashboard-button'),
+    html.Button('View R Markdown', id='rmarkdown-button'),
+])
+
 # Layout for cholesterol dashboard
 dashboard_layout = html.Div([
     html.H2("Cholesterol Dashboard"),
