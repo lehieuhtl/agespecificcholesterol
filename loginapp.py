@@ -131,5 +131,22 @@ login_layout = html.Form([
 
 #Layout main page
 main_layout = html.Div([
-    
+    html.H2("Main Page"),
+    html.Button('View Dashboard', id='dashboard-button'),
+    html.Button('View R Markdown', id='rmarkdown-button'),
 ])
+
+#Layout cholesterol dashboard
+dashboard_layout = html.Div([
+    html.H2("Cholesterol Dashboard"),
+    dcc.Dropdown(id='age-group-dropdown',
+                    options=[{'label': age_group, 'value': age_group} for age_group in agedata['Age group'].unique()],
+                    value=agedata['Age group'].unique()[0]),
+    dcc.Graph(id='cholesterol-plot')
+])
+
+#Layout R Markdown content
+rmarkdown_layout = html.Div([
+    dcc.Markdown(id='rmarkdown-content', children=rmarkdown_content)
+])
+
